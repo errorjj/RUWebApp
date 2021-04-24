@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$ru-theme-primary: mat-palette($mat-red, 400);
+$ru-theme-accent: mat-palette($mat-grey, 400, 300);
+
+// The warn palette is optional (defaults to red).
+$ru-theme-warn: mat-palette($mat-red, 500);
+
+
+$ru-theme: mat-light-theme((
+  color: (
+    primary: $ru-theme-primary,
+    accent: $ru-theme-accent,
+    warn: $ru-theme-warn,
+  )
+));
+
+@include angular-material-theme($ru-theme);
