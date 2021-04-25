@@ -1,44 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
 <body>
-
-  <!--
-
-    NÃO SEI, MAS TALVEZ O CSS ESTEJA UM POUCO COMPLEXO DEMAIS PRA SER EXPLICADO NO MINICURSO.
-    PRA NÃO DEIXAR COMPLEXO A GENTE TEM DUAS OPÇÕES:
-    1- NÃO USAR O MATERIAL NOS CAMPOS;
-    2- DEIXAR OS CAMPOS COMO O VEM PADRÃO DO MATERIAL;
-
-  -->
 
   <div class="content">
     <mat-card>
       <h1>Entre em sua Conta</h1>
       <form>
         <mat-form-field>
-          <mat-label>Nome</mat-label>
-          <input type="text" matInput>
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="text" matInput>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Senha</mat-label>
-          <input [type]="hide ? 'password' : 'text'" matInput>
+          <input [(ngModel)]="senha" [ngModelOptions]="{standalone: true}" [type]="hide ? 'password' : 'text'" matInput>
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
-        <a href="#">Esqueci minha senha</a>
+        <a>Esqueci minha senha</a>
       </form>
-      <button mat-raised-button color="warn">Login</button>
-      <a href="#">Cadastre-se ></a>
+      <button (click)="login()" mat-raised-button color="warn">Login</button>
+      <a routerLink="register">Cadastre-se ></a>
     </mat-card>
   </div>
 
 </body>
 
-</html>

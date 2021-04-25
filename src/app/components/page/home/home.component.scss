@@ -142,3 +142,67 @@ footer {
 
   color: white;
 }
+
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1% 0;
+}
+
+mat-toolbar .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+mat-toolbar .left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-toolbar .right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 15%;
+}
+
+mat-toolbar button {
+  background-color: none;
+  border: none;
+  background: none;
+
+}
+
+mat-toolbar mat-icon {
+  font-size: clamp(1.8em, 2.2em, 2.5em);
+  color: #232323;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+mat-toolbar mat-icon:hover {
+  transform: scale(1.05);
+  color: #f44336;
+}
+
+
+mat-toolbar h3 {
+  color: #808080;
+  font-weight: 300;
+}
+
+
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

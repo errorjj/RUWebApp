@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
 
 <body>
 
@@ -21,45 +13,42 @@
   <div class="content">
     <mat-card>
       <h1>Cadastre sua Conta</h1>
-      <form>
+      <form [formGroup]="registerForm">
         <mat-form-field>
           <mat-label>Nome</mat-label>
-          <input type="text" matInput>
+          <input formControlName="nome" type="text" matInput>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Email</mat-label>
-          <input type="text" matInput>
+          <input formControlName="email" type="text" matInput>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Senha</mat-label>
-          <input [type]="hide ? 'password' : 'text'" matInput>
+          <input formControlName="senha" [type]="hide ? 'password' : 'text'" matInput>
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
 
         <div class="local">
           <mat-form-field>
-            <mat-label>Cidade</mat-label>
-            <mat-select>
-              <mat-option>None</mat-option>
-              <mat-option value="option1">Option 1</mat-option>
-              <mat-option value="option2">Option 2</mat-option>
-              <mat-option value="option3">Option 3</mat-option>
+            <mat-label>Estado</mat-label>
+            <mat-select (selectionChange)="changeState($event.value)" formControlName="estado">
+              <mat-option *ngFor="let estado of estados" [value]="estado.id">
+                {{estado.sigla}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
-
           <mat-form-field>
-            <mat-label>Estado</mat-label>
-            <mat-select>
-              <mat-option>None</mat-option>
-              <mat-option value="option1">MG</mat-option>
-              <mat-option value="option2">SP</mat-option>
-              <mat-option value="option3">SC</mat-option>
+            <mat-label>Cidade</mat-label>
+            <mat-select formControlName="cidade">
+              <mat-option *ngFor="let cidade of cidades" [value]="cidade.id">
+                {{cidade.nome}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
+        <!--<p>{{registerForm.value | json}}</p>-->
       </form>
-      <button mat-raised-button color="warn">Cadastrar</button>
+      <button *ngIf="registerForm.valid" (click)="register()" mat-raised-button color="warn">Cadastrar</button>
     </mat-card>
   </div>
 </body>
-</html>

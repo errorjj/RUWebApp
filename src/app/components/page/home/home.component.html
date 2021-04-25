@@ -1,29 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
 <body>
+  <mat-toolbar>
+
+    <div class="content">
+      <div class="left">
+        <button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+
+      <div class="right">
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon [matBadge]="contador" matBadgeColor="warn" matBadgeSize="small">shopping_cart</mat-icon>
+        </button>
+        <div class="user">
+          <button>
+            <mat-icon>account_circle</mat-icon>
+          </button>
+
+          <h3>{{username}}</h3>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>
 
   <h1>Selecione as suas<br><b>Compras</b></h1>
 
   <div class="filters">
     <mat-form-field appearance="outline">
       <mat-label>Tipo</mat-label>
-      <input type="text" matInput>
+      <mat-select (selectionChange)="filtroTipo($event.value)">
+        <mat-option value="">Todos</mat-option>
+        <mat-option value="Sanduiche">Sanduiche</mat-option>
+        <mat-option value="Refeição">Refeição</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Preço</mat-label>
-      <input type="text" matInput>
+      <mat-select (selectionChange)="filtroPreco($event.value)">
+        <mat-option value="">Todos</mat-option>
+        <mat-option value="R$20,00">R$20,00</mat-option>
+        <mat-option value="R$30,00">R$30,00</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Disponibilidade</mat-label>
-      <input type="text" matInput>
+      <mat-select (selectionChange)="filtroDisponibilidade($event.value)">
+        <mat-option value="">Todos</mat-option>
+        <mat-option value="Disponivel">Disponivel</mat-option>
+        <mat-option value="Indisponivel">Indisponivel</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
 
@@ -35,111 +61,23 @@
   -->
 
   <div class="cards">
-    <div class="card">
+    <div (click)="buy()" *ngFor="let comida of cardapio" class="card">
       <img src="/assets/img/food.jpg" alt="image">
 
       <div class="text">
-        <h3>Sanduíche de Tal coisa</h3>
+        <h3>{{comida.name}}</h3>
+        <p><b>{{comida.tipo}}</b></p>
         <p>
-          A ideia de colocar algum recheio no pão é bem antiga.
-          Antes de Cristo, nos antigos rituais de Pessach,
-          já se fazia uma mistura.
+          {{comida.description}}
         </p>
-        <p class="price">R$9,00</p>
+        <p class="price">{{comida.preco}}</p>
       </div>
 
     </div>
 
-    <div class="card">
-      <img src="/assets/img/food.jpg" alt="image">
-
-      <div class="text">
-        <h3>Sanduíche de Tal coisa</h3>
-        <p>
-          A ideia de colocar algum recheio no pão é bem antiga.
-          Antes de Cristo, nos antigos rituais de Pessach,
-          já se fazia uma mistura.
-        </p>
-        <p class="price">R$9,00</p>
-      </div>
-
-    </div>
-    <div class="card">
-      <img src="/assets/img/food.jpg" alt="image">
-
-      <div class="text">
-        <h3>Sanduíche de Tal coisa</h3>
-        <p>
-          A ideia de colocar algum recheio no pão é bem antiga.
-          Antes de Cristo, nos antigos rituais de Pessach,
-          já se fazia uma mistura.
-        </p>
-        <p class="price">R$9,00</p>
-      </div>
-
-    </div>
-    <div class="card">
-      <img src="/assets/img/food.jpg" alt="image">
-
-      <div class="text">
-        <h3>Sanduíche de Tal coisa</h3>
-        <p>
-          A ideia de colocar algum recheio no pão é bem antiga.
-          Antes de Cristo, nos antigos rituais de Pessach,
-          já se fazia uma mistura.
-        </p>
-        <p class="price">R$9,00</p>
-      </div>
-
-    </div>
-    <div class="card">
-      <img src="/assets/img/food.jpg" alt="image">
-
-      <div class="text">
-        <h3>Sanduíche de Tal coisa</h3>
-        <p>
-          A ideia de colocar algum recheio no pão é bem antiga.
-          Antes de Cristo, nos antigos rituais de Pessach,
-          já se fazia uma mistura.
-        </p>
-        <p class="price">R$9,00</p>
-      </div>
-
-    </div>
-    <div class="card">
-      <img src="/assets/img/food.jpg" alt="image">
-
-      <div class="text">
-        <h3>Sanduíche de Tal coisa</h3>
-        <p>
-          A ideia de colocar algum recheio no pão é bem antiga.
-          Antes de Cristo, nos antigos rituais de Pessach,
-          já se fazia uma mistura.
-        </p>
-        <p class="price">R$9,00</p>
-      </div>
-
-    </div>
-    <div class="card">
-      <img src="/assets/img/food.jpg" alt="image">
-
-      <div class="text">
-        <h3>Sanduíche de Tal coisa</h3>
-        <p>
-          A ideia de colocar algum recheio no pão é bem antiga.
-          Antes de Cristo, nos antigos rituais de Pessach,
-          já se fazia uma mistura.
-        </p>
-        <p class="price">R$9,00</p>
-      </div>
-
-    </div>
-    
   </div>
 
   <footer>
     <h1>Footer</h1>
   </footer>
 </body>
-
-</html>

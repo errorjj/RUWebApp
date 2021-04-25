@@ -16,6 +16,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,6 +31,7 @@ import {MatBadgeModule} from '@angular/material/badge';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatIconModule,
@@ -37,7 +40,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatSelectModule,
     MatToolbarModule,
     MatBadgeModule,
-
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
