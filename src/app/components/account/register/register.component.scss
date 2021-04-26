@@ -121,6 +121,28 @@ button {
 
 .local mat-form-field:nth-child(1) {
   width: 20%;
-  margin-left: 3%;
 }
 
+a {
+  text-decoration: none;
+  color: #808080;
+  font-weight: 300;
+  cursor: pointer;
+
+  transition: all .3s;
+}
+
+a:hover {
+  transform: scale(1.05);
+}
+
+mat-card a {
+  margin-top: -5%;
+  width: 80%;
+  text-align: center;
+  font-size: 1em;
+}
+
+mat-icon {
+  cursor: pointer;
+}

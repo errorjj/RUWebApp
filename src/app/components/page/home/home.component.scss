@@ -53,13 +53,23 @@ h1 {
 }
 
 .filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   width: 90%;
   margin-top: 5%;
 }
 
-
 mat-form-field {
   margin-right: 5%;
+}
+
+.filters button {
+  height: 65%;
+  margin-top: -2%;
+  width: 15%;
+  font-size: clamp(0.8em, 1em, 1.2em);
 }
 
 
@@ -116,6 +126,12 @@ mat-form-field {
   font-size: clamp(0.8em, 1em, 1.2em);
 }
 
+.text p.type{
+  margin-top: -5%;
+  margin-bottom: 5%;
+  font-size: clamp(0.5em, .8em, 1em);
+}
+
 .text p.price{
   font-weight: 700;
   font-size: clamp(0.8em, 1em, 1.2em);
@@ -130,17 +146,6 @@ mat-form-field {
 
 .text p.price:hover {
   transform: scale(1.05);
-}
-
-footer {
-  background-color: #232323;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
-  color: white;
 }
 
 mat-toolbar {
@@ -205,4 +210,59 @@ mat-toolbar h3 {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+
+footer {
+  background-color: #232323;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+footer .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding-top: 2%;
+}
+
+footer .content img {
+  width: 30%;
+  cursor: pointer;
+
+  transition: all .3s;
+}
+
+footer .content img:hover {
+  transform: scale(1.08);
+}
+
+footer .content .options{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+
+  width: 50%;
+}
+
+footer .content .options a {
+  text-decoration: none;
+  color: white;
+  margin-bottom: 10%;
+  text-align: left;
+
+  transition: all .3s;
+}
+
+footer .content .options a:hover {
+  transform: scale(1.08);
+  color: #FF5555;
 }

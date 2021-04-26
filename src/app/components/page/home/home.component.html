@@ -51,6 +51,8 @@
         <mat-option value="Indisponivel">Indisponivel</mat-option>
       </mat-select>
     </mat-form-field>
+
+    <button mat-raised-button color="warn">Reset Filters</button>
   </div>
 
   <!--
@@ -66,7 +68,7 @@
 
       <div class="text">
         <h3>{{comida.name}}</h3>
-        <p><b>{{comida.tipo}}</b></p>
+        <p class="type">{{comida.tipo}}</p>
         <p>
           {{comida.description}}
         </p>
@@ -78,6 +80,15 @@
   </div>
 
   <footer>
-    <h1>Footer</h1>
+    <div class="content">
+      <a href="https://www.ufsj.edu.br" target="_blank"><img src="/assets/img/ufsj4.png" alt="Logo UFSJ"></a>
+
+      <div class="options">
+        <a href="mailto:faleconosco.ru@ufsj.edu.br" target="_blank">Contato</a>
+        <a href="https://www.ufsj.edu.br" target="_blank">Website UFSJ</a>
+        <a href="http://www.proae.ufsj.edu.br/r-cap.php" target="_blank">Página R.U.</a>
+        <a href="https://goo.gl/maps/uRjk2EHz6aZudNRt7" target="_blank">UFSJ - CAP</a>
+      </div>
+    </div>
   </footer>
 </body>
